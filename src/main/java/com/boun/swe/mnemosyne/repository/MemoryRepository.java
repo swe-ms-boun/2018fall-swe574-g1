@@ -8,13 +8,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface MemoryRepository extends JpaRepository<User, Long> {
+public interface MemoryRepository extends JpaRepository<Memory, Long> {
 
     //List<Memory> findMemoriesByTitle(String title);
 
-    //List<Memory> findMemoriesByUsername(String userName);
+    List<Memory> findMemoriesByUsername(String userName);
 
     //List<Memory> findMemoriesByLocation(String location);
 
     //List<Memory> findMemoriesByArea(Area area);
+
 }

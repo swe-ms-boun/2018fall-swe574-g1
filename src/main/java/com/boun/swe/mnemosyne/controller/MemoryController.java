@@ -3,14 +3,17 @@ package com.boun.swe.mnemosyne.controller;
 import com.boun.swe.mnemosyne.exception.UserNotFoundException;
 import com.boun.swe.mnemosyne.model.Memory;
 import com.boun.swe.mnemosyne.model.User;
+import com.boun.swe.mnemosyne.model.dto.MemoryDto;
 import com.boun.swe.mnemosyne.service.MemoryService;
 import com.boun.swe.mnemosyne.service.UserService;
+import org.hibernate.ObjectNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -41,4 +44,28 @@ public class MemoryController {
         }
         return memoryService.getMemories(username);
     }
+
+    public Memory createNewMemories(@ModelAttribute("memoryForm") final Memory memory, User user)
+    {
+        memory.setUser(user);
+        return memory;
+    }
+
+    public Memory editExistingMemory(@ModelAttribute("memoryForm") final MemoryDto memoryDto, User user, long memoryId) throws ObjectNotFoundException
+    {
+         Memory memo;
+
+         if(!memoryService.isMemoryExist(memoryId)){
+             throw new ObjectNotFoundException("MemoryNotFound","Memory item could not found");
+         }else{
+            memo = memoryService.getMemoryById(memoryId);
+         }
+         memoryService.setMemoryFields(memo, memoryDto, user);
+
+         return memo;
+    }
+
+
+
+
 }
