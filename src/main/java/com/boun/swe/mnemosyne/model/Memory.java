@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -73,6 +74,13 @@ public class Memory {
             inverseJoinColumns = @JoinColumn(name = "location_id")
     )
     private Set<Location> locations;
+
+    @OneToMany(
+            mappedBy = "memory",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<Media> mediaSet;
 
     @Override
     public String toString() {

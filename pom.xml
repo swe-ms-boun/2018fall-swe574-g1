@@ -69,6 +69,14 @@
             <artifactId>jaxb-api</artifactId>
             <version>2.3.0</version>
         </dependency>
+<<<<<<< HEAD
+=======
+        <dependency>
+            <groupId>com.vladmihalcea</groupId>
+            <artifactId>hibernate-types-52</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+>>>>>>> dc204bc30ff96b8fc3a27fdad67652dee7309dce
         <!--> testing </-->
         <dependency>
             <groupId>com.h2database</groupId>
