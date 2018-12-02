@@ -26,9 +26,6 @@ package com.boun.swe.mnemosyne.annotation.annotationservice.model;
     }
 */
 
-import org.springframework.boot.json.BasicJsonParser;
-import org.springframework.boot.json.JsonParser;
-
 import javax.persistence.*;
 
 
