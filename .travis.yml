@@ -11,6 +11,7 @@ deploy:
   app: mnemosyne
   env: mnemosyne-env
   bucket-name: elasticbeanstalk-us-east-1-571601373592
+  akip_cleanup: true
   on:
     repo: swe-ms-boun/2018fall-swe574-g1
     branch: develop
