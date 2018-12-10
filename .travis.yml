@@ -14,4 +14,4 @@ deploy:
   akip_cleanup: true
   on:
     repo: swe-ms-boun/2018fall-swe574-g1
-    branch: develop
+    branch: feature/taneresme/auto-deploy
