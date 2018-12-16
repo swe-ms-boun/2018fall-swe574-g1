@@ -2,7 +2,7 @@ language: java
 java:
 - stable
 deploy:
-  provider: elasticbeanstalk
+  provider: s3
   access_key_id:
     secure: "jzUtRQx5tFax3p5iO7Ys5YS/TpeRl8hePa6H/NPFIY+Z17DLsX3o0eWuwWdezIzeK4HCjbhG5q7wQfFjRgkEaYe5tGzOSas7cub4JrTLepK3DUd0ZpDQJ4bWFB7dN67/nidi42+odAXcVbvtaFhiKtIVyWyr5vH+eEJKKqU/5O1cc7Nz+n1eI4/cNxHNyGRGfqIeUCv+VdWZpr+68P++AwhagZaDJB0BWluAHJnYDQ5NLcuhNfmOeBLDmpURuu/yqrE6alooK4Ucqd0Fj4wcD23WPNkIH3hVo94Y6yqqXGIoAVqT5vR2CW01xTyDmwHQZrZOD8hMfffhrIRvAHL1V7YUosUSz0p63YB0JF7ZmBd942rVuNYnv9SrYDKi/j8paKruaulMKm/ReQXiLUxteSvX4q3nd+yMkxN6dUCRKNja8rwbLugc05mt8grNidtORfX2BzHF8HnPzEMfl2jnSiMcXAFG3xZZDD78V+sybSfk+Ps4gEl73345q1EXIH9AR0e8T6c0WCa/FZCB1FsLAxyxUFWB+dagme1LgExbsKX/YsLPeaU5TzOZR7VyP9hHq6/zmI6GOhEq57LzYZj8mYKBRf3+cr1YicMuudUwgs2JoBlzmZAh0AmLXSzwZ2MwH+mwX2aX7F6cxfC2J++EEEzKe2OJo1LQdBVyLm+BqnQ="
   secret_access_key:
@@ -10,7 +10,7 @@ deploy:
   region: "us-east-1"
   app: "mnemosyne"
   env: "mnemosyne-env"
-  bucket_name: "elasticbeanstalk-us-east-1-571601373592"
+  bucket: "elasticbeanstalk-us-east-1-571601373592"
   on:
     repo: "swe-ms-boun/2018fall-swe574-g1"
     branch: "feature/taneresme/auto-deploy"
