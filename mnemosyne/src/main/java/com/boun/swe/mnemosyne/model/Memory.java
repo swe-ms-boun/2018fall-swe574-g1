@@ -32,6 +32,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -78,6 +79,8 @@ public class Memory {
 
     private String period;
 
+    private List<Long> likes;
+
     @Column(name = "is_published")
     private boolean isPublished;
 
@@ -94,6 +97,10 @@ public class Memory {
             inverseJoinColumns = @JoinColumn(name = "location_id")
     )
     private Set<Location> locations;
+
+    public void addLike(long userId){
+        likes.add(userId);
+    }
 
     @Override
     public String toString() {

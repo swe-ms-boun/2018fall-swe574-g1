@@ -106,6 +106,11 @@ public class MemoryController {
         return followingsMemories;
     }
 
+    @PostMapping(value = "/like")
+    public void likeMemory(final User user, final Memory memory){
+        userService.likeMemory(memory, user);
+    }
+
     private List<Memory> findRequestedMemories(Long userId, String memoryType, User userInRequest) {
         List<Memory> memories;
         if (userInRequest != null && userInRequest.getId() == userId) {

@@ -1,6 +1,7 @@
 package com.boun.swe.mnemosyne.service;
 
 import com.boun.swe.mnemosyne.enums.Role;
+import com.boun.swe.mnemosyne.model.Memory;
 import com.boun.swe.mnemosyne.model.User;
 import com.boun.swe.mnemosyne.repository.UserRepository;
 import org.slf4j.Logger;
@@ -74,5 +75,9 @@ public class UserService {
     public List<User> getAllUsers() {
         LOGGER.info("Retrieving all users");
         return userRepository.findAll();
+    }
+
+    public void likeMemory(final Memory memory, final User user){
+        memory.addLike(user.getId());
     }
 }
